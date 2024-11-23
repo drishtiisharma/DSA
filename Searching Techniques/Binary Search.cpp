@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 // Function to perform binary search
 int binarySearch(const int arr[], int size, int target) {
@@ -29,9 +30,9 @@ int binarySearch(const int arr[], int size, int target) {
 // Utility function to print an array
 void printArray(const int arr[], int size) {
     for (int i = 0; i < size; ++i) {
-        std::cout << arr[i] << " ";
+        cout << arr[i] << " ";
     }
-    std::cout << std::endl;
+    cout<<endl;
 }
 
 int main() {
@@ -39,7 +40,7 @@ int main() {
     int arr[] = {2, 3, 4, 10, 40};
 
     int size = sizeof(arr) / sizeof(arr[0]);
-    std::cout << "Array: ";
+    cout << "Array: ";
     printArray(arr, size);
 
     // Define the target value to search
@@ -48,9 +49,9 @@ int main() {
     // Perform binary search
     int result = binarySearch(arr, size, target);
     if (result != -1) {
-        std::cout << "Element found at index " << result << std::endl;
+        cout << "Element found at index " << result <<endl;
     } else {
-        std::cout << "Element not found in the array" << std::endl;
+        cout << "Element not found in the array" <<endl;
     }
 
     return 0;
