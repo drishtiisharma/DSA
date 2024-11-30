@@ -1,2 +1,1 @@
-# DSA
-will just be uploading codes/resources related to DSA
+will be sharing codes and notes here to support my personal learning 
