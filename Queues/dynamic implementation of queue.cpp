@@ -6,74 +6,68 @@ struct QueueNode {
     QueueNode* next;
 };
 
-QueueNode *front, *rear;
-QueueNode *avail, *temp;
+QueueNode* front = NULL;
+QueueNode* rear = NULL;
 
 void Insert() {
-    avail = (struct QueueNode*)malloc(sizeof(struct QueueNode*));
-    int val;
-    if (avail == NULL)
+    QueueNode* newNode = new QueueNode();
+    if (!newNode) {
         cout << "Queue Overflow" << endl;
-    else {
-        if (front == NULL)
-            front = front->next;
-        cout << "Insert the element in queue: " << endl;
-        cin >> val;
-        rear = rear->next;
-        rear->data = val;
+        return;
+    }
+    cout << "Insert the element in queue: ";
+    cin >> newNode->data;
+    newNode->next = NULL;
+    if (rear == NULL) {
+        front = rear = newNode;
+    } else {
+        rear->next = newNode;
+        rear = newNode;
     }
 }
 
 void Delete() {
     if (front == NULL) {
-        cout << "Queue Underflow " << endl;
+        cout << "Queue Underflow" << endl;
         return;
-    } else {
-        cout << "Element deleted from queue is: " << front->data << endl;
-        front = front->next;
     }
+    QueueNode* temp = front;
+    cout << "Element deleted from queue is: " << temp->data << endl;
+    front = front->next;
+    if (front == NULL) {
+        rear = NULL;
+    }
+    delete temp;
 }
 
 void Display() {
-    if (front == NULL)
+    if (front == NULL) {
         cout << "Queue is empty" << endl;
-    else {
-        cout << "Queue elements are: ";
-        temp = front;
-        while (temp->next != NULL) {
-            cout << temp->data << " ";
-            temp = temp->next;
-        }
-        cout << endl;
+        return;
     }
+    QueueNode* temp = front;
+    cout << "Queue elements are: ";
+    while (temp != NULL) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
 }
 
 int main() {
-    front = NULL;
-    rear = NULL;
-    int ch;
-
-    cout << "1) Insert element to queue" << endl;
-    cout << "2) Delete element from queue" << endl;
-    cout << "3) Display all the elements of queue" << endl;
-    cout << "4) Exit" << endl;
-
+    int choice;
     do {
-        cout << "Enter your choice: " << endl;
-        cin >> ch;
-        switch (ch) {
-            case 1: Insert();
-                    break;
-            case 2: Delete();
-                    break;
-            case 3: Display();
-                    break;
-            case 4: cout << "Exit" << endl;
-                    break;
+        cout << "1. Insert\n2. Delete\n3. Display\n4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+        switch (choice) {
+            case 1: Insert(); break;
+            case 2: Delete(); break;
+            case 3: Display(); break;
+            case 4: cout << "Exiting..." << endl; break;
             default: cout << "Invalid choice" << endl;
-                     break;
         }
-    } while (ch != 4);
+    } while (choice != 4);
 
     return 0;
 }
