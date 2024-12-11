@@ -1,5 +1,5 @@
 # Arrays
-This folder holds the combined and categorized list of questions based on arrays are segregated on difficulty basis. 
+This folder holds the combined and categorized list of questions based on arrays that are segregated on difficulty basis. 
 
 
 
