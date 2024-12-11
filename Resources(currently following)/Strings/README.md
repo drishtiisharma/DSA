@@ -64,4 +64,3 @@ This folder holds the combined and categorized list of questions based on string
 14. **Recursively Print All Sentences That Can Be Formed From a List of Word Lists**  
 15. **Find the Smallest Window in a String Containing All Characters of Another String**  
 
-This list combines all questions, ensuring no duplicates while organizing them into appropriate categories.
